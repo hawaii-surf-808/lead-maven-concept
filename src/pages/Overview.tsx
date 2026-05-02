@@ -4,85 +4,106 @@ import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 import { PENDING_TASKS, LEAD_SOURCES, MINI_STATS, MOCK_CHART_DATA } from '../data';
 
 const FunnelChart = () => (
-  <div className="relative w-full aspect-[2/1] mt-6 select-none">
-    <svg viewBox="0 0 400 200" className="w-full h-full drop-shadow-md">
-      <defs>
-        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#10b981" />
-          <stop offset="100%" stopColor="#059669" />
-        </linearGradient>
-        <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#059669" />
-          <stop offset="100%" stopColor="#047857" />
-        </linearGradient>
-        <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#047857" />
-          <stop offset="100%" stopColor="#065f46" />
-        </linearGradient>
-        <linearGradient id="g4" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#065f46" />
-          <stop offset="100%" stopColor="#064e3b" />
-        </linearGradient>
-      </defs>
-      
-      {/* 100% */}
-      <path d="M 0 0 L 400 0 L 330 45 L 70 45 Z" fill="url(#g1)" className="hover:opacity-90 transition-opacity cursor-pointer" />
-      {/* 46.4% */}
-      <path d="M 75 52 L 325 52 L 260 97 L 140 97 Z" fill="url(#g2)" className="hover:opacity-90 transition-opacity cursor-pointer" />
-      {/* 18.8% */}
-      <path d="M 145 104 L 255 104 L 210 149 L 190 149 Z" fill="url(#g3)" className="hover:opacity-90 transition-opacity cursor-pointer" />
-      {/* 7.1% */}
-      <path d="M 190 156 L 210 156 L 195 200 L 205 200 Z" fill="url(#g4)" className="hover:opacity-90 transition-opacity cursor-pointer" />
-    </svg>
-    
-    {/* Labels Left */}
-    <div className="absolute top-2 left-0 text-right text-xs">
-      <div className="font-semibold text-text-primary">NEW LEADS</div>
-      <div className="text-text-tertiary">452 Leads</div>
-    </div>
-    <div className="absolute top-[56px] left-[10%] text-right text-xs">
-      <div className="font-semibold text-text-primary">QUALIFIED</div>
-      <div className="text-text-tertiary">210 Leads</div>
-    </div>
-    <div className="absolute top-[108px] left-[25%] text-right text-xs">
-      <div className="font-semibold text-text-primary">PROPOSAL</div>
-      <div className="text-text-tertiary">85 Sent</div>
-    </div>
-    <div className="absolute top-[160px] left-[35%] text-right text-xs">
-      <div className="font-semibold text-text-primary">CLOSED</div>
-      <div className="text-text-tertiary">32 Won</div>
+  <div className="flex w-full items-start justify-center h-[200px] mt-6 select-none relative gap-4">
+    {/* Left Labels */}
+    <div className="flex flex-col h-full text-right shrink-0">
+      <div className="h-[50px] flex flex-col justify-center">
+        <div className="font-semibold text-text-primary text-xs">NEW LEADS</div>
+        <div className="text-text-tertiary text-xs">452 Leads</div>
+      </div>
+      <div className="h-[50px] flex flex-col justify-center">
+        <div className="font-semibold text-text-primary text-xs">QUALIFIED</div>
+        <div className="text-text-tertiary text-xs">210 Leads</div>
+      </div>
+      <div className="h-[50px] flex flex-col justify-center">
+        <div className="font-semibold text-text-primary text-xs">PROPOSAL</div>
+        <div className="text-text-tertiary text-xs">85 Sent</div>
+      </div>
+      <div className="h-[50px] flex flex-col justify-center">
+        <div className="font-semibold text-text-primary text-xs">CLOSED</div>
+        <div className="text-text-tertiary text-xs">32 Won</div>
+      </div>
     </div>
 
-    {/* Percentages Right */}
-    <div className="absolute top-4 right-0 font-medium text-text-primary text-sm">100%</div>
-    <div className="absolute top-[64px] right-[10%] font-medium text-text-primary text-sm">46.4%</div>
-    <div className="absolute top-[116px] right-[25%] font-medium text-text-primary text-sm">18.8%</div>
-    <div className="absolute top-[168px] right-[35%] font-medium text-text-primary text-sm">7.1%</div>
+    {/* SVG */}
+    <div className="h-full px-2 flex-1 max-w-[280px]">
+      <svg viewBox="0 0 400 200" className="w-full h-full drop-shadow-md" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#10b981" />
+            <stop offset="100%" stopColor="#059669" />
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#059669" />
+            <stop offset="100%" stopColor="#047857" />
+          </linearGradient>
+          <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#047857" />
+            <stop offset="100%" stopColor="#065f46" />
+          </linearGradient>
+          <linearGradient id="g4" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#065f46" />
+            <stop offset="100%" stopColor="#064e3b" />
+          </linearGradient>
+        </defs>
+        <path d="M 0 0 L 400 0 L 292.8 50 L 107.2 50 Z" fill="url(#g1)" className="hover:opacity-90 transition-opacity cursor-pointer" />
+        <path d="M 107.2 50 L 292.8 50 L 237.6 100 L 162.4 100 Z" fill="url(#g2)" className="hover:opacity-90 transition-opacity cursor-pointer" />
+        <path d="M 162.4 100 L 237.6 100 L 214.2 150 L 185.8 150 Z" fill="url(#g3)" className="hover:opacity-90 transition-opacity cursor-pointer" />
+        <path d="M 185.8 150 L 214.2 150 L 214.2 200 L 185.8 200 Z" fill="url(#g4)" className="hover:opacity-90 transition-opacity cursor-pointer" />
+      </svg>
+    </div>
+
+    {/* Right Labels */}
+    <div className="flex flex-col h-full text-left shrink-0">
+      <div className="h-[50px] flex items-center font-medium text-text-primary text-sm">100%</div>
+      <div className="h-[50px] flex items-center font-medium text-text-primary text-sm">46.4%</div>
+      <div className="h-[50px] flex items-center font-medium text-text-primary text-sm">18.8%</div>
+      <div className="h-[50px] flex items-center font-medium text-text-primary text-sm">7.1%</div>
+    </div>
   </div>
 );
 
 const DonutChart = () => (
-  <div className="relative w-40 h-40">
-    <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-      {/* Background Track */}
-      <circle cx="50" cy="50" r="40" fill="none" stroke="currentcolor" className="text-border-subtle" strokeWidth="8" />
-      
-      {/* Discovery (45%) */}
-      <circle cx="50" cy="50" r="40" fill="none" stroke="#10b981" strokeWidth="8" strokeDasharray="251.2" strokeDashoffset="138" strokeLinecap="round" />
-      {/* Evaluation (25%) */}
-      <circle cx="50" cy="50" r="40" fill="none" stroke="#059669" strokeWidth="8" strokeDasharray="251.2" strokeDashoffset="188" strokeLinecap="round" className="rotate-[162deg] origin-center" />
-      {/* Negotiation (30%) */}
-      <circle cx="50" cy="50" r="40" fill="none" stroke="#3f3f46" strokeWidth="8" strokeDasharray="251.2" strokeDashoffset="175" strokeLinecap="round" className="rotate-[252deg] origin-center" />
-    </svg>
-    <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-      <div className="text-3xl font-light text-text-primary tracking-tight">24</div>
-      <div className="text-[10px] text-text-tertiary font-medium tracking-wider uppercase mt-1">STAGES</div>
+  <div className="flex w-full items-center justify-between">
+    <div className="relative w-32 h-32 shrink-0">
+      <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
+        {/* Background Track */}
+        <circle cx="50" cy="50" r="40" fill="none" stroke="currentcolor" className="text-border-subtle" strokeWidth="8" />
+        
+        {/* Discovery (45%) */}
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#10b981" strokeWidth="8" strokeDasharray="251.2" strokeDashoffset="138" strokeLinecap="round" />
+        {/* Evaluation (25%) */}
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#059669" strokeWidth="8" strokeDasharray="251.2" strokeDashoffset="188" strokeLinecap="round" className="rotate-[162deg] origin-center" />
+        {/* Negotiation (30%) */}
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#3f3f46" strokeWidth="8" strokeDasharray="251.2" strokeDashoffset="175" strokeLinecap="round" className="rotate-[252deg] origin-center" />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+        <div className="text-3xl font-light text-text-primary tracking-tight">24</div>
+        <div className="text-[10px] text-text-tertiary font-medium tracking-wider uppercase mt-1">ACTIVE<br/>STAGES</div>
+      </div>
+    </div>
+    <div className="space-y-4 flex-1 pl-8">
+      <div className="flex items-center gap-3">
+        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+        <div className="text-sm text-text-secondary mr-6">Discovery</div>
+        <div className="text-sm text-text-primary font-medium ml-auto">45%</div>
+      </div>
+      <div className="flex items-center gap-3">
+        <div className="w-2.5 h-2.5 rounded-full bg-emerald-600"></div>
+        <div className="text-sm text-text-secondary mr-6">Evaluation</div>
+        <div className="text-sm text-text-primary font-medium ml-auto">25%</div>
+      </div>
+      <div className="flex items-center gap-3">
+        <div className="w-2.5 h-2.5 rounded-full bg-zinc-600"></div>
+        <div className="text-sm text-text-secondary mr-6">Negotiation</div>
+        <div className="text-sm text-text-primary font-medium ml-auto">30%</div>
+      </div>
     </div>
   </div>
 );
 
 const MiniLineChart = ({ data, color }: { data: any[], color: string }) => (
-  <div className="h-10 w-24">
+  <div className="h-full w-full">
     <ResponsiveContainer width="100%" height="100%">
       <AreaChart data={data}>
         <defs>
@@ -111,12 +132,14 @@ export default function Overview() {
               <h3 className="text-[11px] font-semibold tracking-wider text-text-tertiary uppercase mb-2">Opportunity Status</h3>
               <div className="text-5xl font-light text-text-primary tracking-tight">185</div>
             </div>
-            <div className="relative w-16 h-16 shrink-0">
-              <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                <circle cx="50" cy="50" r="44" fill="none" stroke="var(--border-subtle)" strokeWidth="6" />
-                <circle cx="50" cy="50" r="44" fill="none" stroke="#059669" strokeWidth="6" strokeDasharray="276" strokeDashoffset="69" strokeLinecap="round" />
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-text-primary">75%</div>
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 shrink-0">
+                <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="var(--border-subtle)" strokeWidth="6" />
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="#059669" strokeWidth="6" strokeDasharray="276" strokeDashoffset="69" strokeLinecap="round" />
+                </svg>
+              </div>
+              <div className="text-xl font-medium text-emerald-500">75%<br/><span className="text-[10px] text-text-tertiary tracking-wider uppercase leading-none">Goal</span></div>
             </div>
           </div>
           <div className="flex items-center gap-2 text-xs font-medium text-emerald-500 mt-6">
@@ -232,25 +255,8 @@ export default function Overview() {
         
         <div className="crm-card p-6 flex flex-col h-[340px]">
           <h2 className="text-lg font-semibold text-text-primary mb-6">Stage Distribution</h2>
-          <div className="flex-1 flex items-center justify-between">
+          <div className="flex-1 flex flex-col items-start justify-center">
             <DonutChart />
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
-                <div className="text-sm text-text-secondary mr-6">Discovery</div>
-                <div className="text-sm text-text-primary font-medium ml-auto">45%</div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-600"></div>
-                <div className="text-sm text-text-secondary mr-6">Evaluation</div>
-                <div className="text-sm text-text-primary font-medium ml-auto">25%</div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-zinc-600"></div>
-                <div className="text-sm text-text-secondary mr-6">Negotiation</div>
-                <div className="text-sm text-text-primary font-medium ml-auto">30%</div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -305,25 +311,26 @@ export default function Overview() {
       {/* ROW 4: Stat Strips & Velocity */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {MINI_STATS.map((stat, i) => (
-          <div key={i} className="crm-card p-5 flex flex-col justify-between h-[100px]">
-            <div className="flex justify-between items-start w-full">
+          <div key={i} className="crm-card p-5 flex flex-col justify-between h-[100px] relative overflow-hidden">
+            <div className="flex justify-between items-start w-full relative z-10">
               <div className="text-[10px] font-semibold text-text-tertiary uppercase tracking-wider">{stat.label}</div>
               {stat.trend && (
                 <div className="text-[10px] font-bold text-emerald-500">{stat.trend}</div>
               )}
             </div>
-            <div className="flex items-end justify-between mt-auto">
+            <div className="flex items-end justify-between mt-auto relative z-10">
               <div className="text-2xl font-light tracking-tight text-text-primary">{stat.value}</div>
-              {stat.stars ? (
+              {stat.stars && (
                 <div className="flex gap-0.5">
                   {[1,2,3,4,5].map(s => <Star key={s} size={12} className={s === 5 ? "text-emerald-500/30" : "text-emerald-500"} fill={s !== 5 ? "currentColor" : "none"} />)}
                 </div>
-              ) : (
-                <div className="w-12 h-6 opacity-60">
-                  <MiniLineChart data={MOCK_CHART_DATA} color="#10b981" />
-                </div>
               )}
             </div>
+            {!stat.stars && (
+              <div className="absolute bottom-0 right-0 w-[80px] h-[32px] opacity-60 pointer-events-none z-0">
+                <MiniLineChart data={MOCK_CHART_DATA} color="#10b981" />
+              </div>
+            )}
           </div>
         ))}
       </div>

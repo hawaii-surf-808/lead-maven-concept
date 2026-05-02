@@ -93,11 +93,11 @@ export default function App() {
         <div className="h-20 flex items-center px-6 border-b border-border-subtle">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded bg-emerald-500/20 text-emerald-500 flex items-center justify-center font-bold text-xl">
-              N
+              L
             </div>
             <div>
-              <div className="font-semibold text-text-primary tracking-tight text-lg">Nexus</div>
-              <div className="text-[9px] uppercase tracking-widest text-text-tertiary">Enterprise CRM</div>
+              <div className="font-semibold text-text-primary tracking-tight text-lg">Lead Maven</div>
+              <div className="text-[9px] uppercase tracking-widest text-text-tertiary">CRM Platform</div>
             </div>
           </div>
           <button className="ml-auto lg:hidden text-text-secondary" onClick={() => setSidebarOpen(false)}>
