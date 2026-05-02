@@ -23,27 +23,27 @@ const getChannelColor = (type: string) => {
 };
 
 export default function Conversations() {
-  const [selectedConv, setSelectedConv] = useState(CONVERSATIONS[0]);
+  const [selectedConv, setSelectedConv] = useState<any>(null);
   const [activeTab, setActiveTab] = useState('All');
 
   const tabs = ['All', 'Email', 'SMS', 'Calls', 'Meetings'];
 
   return (
     <div className="h-full flex flex-col max-w-7xl mx-auto">
-      <div className="mb-6 flex justify-between items-center shrink-0">
+      <div className="mb-6 flex flex-col sm:flex-row sm:justify-between sm:items-start sm:items-center gap-4 shrink-0">
         <div>
           <h1 className="text-2xl font-semibold text-text-primary">Conversations</h1>
           <p className="text-sm text-text-tertiary mt-1">Manage all multi-channel communications</p>
         </div>
-        <button className="bg-emerald-500 hover:bg-emerald-400 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all emerald-glow">
+        <button className="bg-emerald-500 hover:bg-emerald-400 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all emerald-glow w-full sm:w-auto">
           New Message
         </button>
       </div>
 
-      <div className="crm-card flex-1 flex overflow-hidden shadow-sm border border-border-subtle min-h-0">
+      <div className="crm-card flex-1 flex flex-col md:flex-row overflow-hidden shadow-sm border border-border-subtle min-h-0">
         
         {/* Left Panel - List */}
-        <div className="w-[35%] min-w-[300px] border-r border-black/[0.08] dark:border-border-subtle flex flex-col bg-[#ffffff] dark:bg-surface-card">
+        <div className={`w-full md:w-[35%] md:min-w-[300px] border-r border-black/[0.08] dark:border-border-subtle flex-col bg-[#ffffff] dark:bg-surface-card ${selectedConv ? 'hidden md:flex' : 'flex'}`}>
           <div className="p-4 border-b border-black/[0.06] dark:border-border-subtle shrink-0">
             <div className="flex items-center gap-1 overflow-x-auto no-scrollbar mb-4">
                {tabs.map(tab => (
@@ -68,7 +68,7 @@ export default function Conversations() {
           
           <div className="flex-1 overflow-y-auto styled-scrollbar">
             {CONVERSATIONS.map((conv, idx) => {
-              const isSelected = selectedConv.id === conv.id;
+              const isSelected = selectedConv?.id === conv.id;
               return (
               <div 
                 key={conv.id}
@@ -104,14 +104,17 @@ export default function Conversations() {
         </div>
 
         {/* Right Panel - Thread */}
-        <div className="w-[65%] flex flex-col bg-[#f4f5f7] dark:bg-surface-base">
+        <div className={`w-full md:w-[65%] flex-col bg-[#f4f5f7] dark:bg-surface-base ${selectedConv ? 'flex' : 'hidden md:flex'}`}>
           {selectedConv ? (
             <div className="flex-1 flex flex-col h-full min-h-0">
               {/* Thread Header */}
-              <div className="p-6 border-b border-black/[0.06] dark:border-border-subtle bg-white dark:bg-surface-card shrink-0">
+              <div className="p-4 md:p-6 border-b border-black/[0.06] dark:border-border-subtle bg-white dark:bg-surface-card shrink-0">
                 <div className="flex justify-between items-start">
-                  <div className="flex gap-4 items-center">
-                    <div className="w-12 h-12 rounded-full flex shrink-0 items-center justify-center text-[14px] font-bold border bg-emerald-500/10 text-emerald-500 border-emerald-500/20">
+                  <div className="flex gap-3 md:gap-4 items-center">
+                    <button onClick={() => setSelectedConv(null as any)} className="md:hidden p-2 -ml-2 text-text-tertiary">
+                      <CornerUpLeft size={20} />
+                    </button>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex shrink-0 items-center justify-center text-[12px] md:text-[14px] font-bold border bg-emerald-500/10 text-emerald-500 border-emerald-500/20">
                       {selectedConv.contact.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div>

@@ -37,7 +37,7 @@ export default function Contacts() {
 
   return (
     <div className="h-full flex flex-col max-w-7xl mx-auto relative">
-      <div className="mb-6 flex justify-between items-end">
+      <div className="mb-6 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 shrink-0">
         <div>
           <h1 className="text-2xl font-semibold text-text-primary">Contacts</h1>
           <div className="flex items-center gap-2 mt-2">
@@ -45,15 +45,15 @@ export default function Contacts() {
              <p className="text-[13px] font-medium text-text-tertiary">Made In Hawaii Enterprises · Last synced 2 min ago</p>
           </div>
           <p className="text-sm text-text-tertiary mt-2">Manage your professional network and leads</p>
-          <div className="flex items-center gap-3 mt-4 text-xs font-semibold uppercase tracking-wider text-text-tertiary">
+          <div className="flex items-center gap-3 mt-4 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-text-tertiary flex-wrap">
             <span>45 Total Contacts</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-border-strong"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-border-strong hidden sm:block"></span>
             <span>12 Active This Week</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-border-strong"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-border-strong hidden sm:block"></span>
             <span>8 New This Month</span>
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 flex-wrap">
           <div className="flex bg-surface-raised p-1 rounded-lg border border-border-subtle">
             <button
               onClick={() => setViewMode('list')}

@@ -4,24 +4,24 @@ import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 import { PENDING_TASKS, LEAD_SOURCES, MINI_STATS, MOCK_CHART_DATA } from '../data';
 
 const FunnelChart = () => (
-  <div className="flex w-full items-center justify-center h-[220px] mt-6 select-none relative gap-6">
+  <div className="flex w-full items-center justify-center h-[220px] mt-6 select-none relative gap-2 sm:gap-6">
     {/* Left Labels */}
     <div className="flex flex-col h-full justify-between text-right shrink-0">
       <div className="h-[55px] flex flex-col justify-center">
-        <div className="text-text-secondary text-xs uppercase tracking-wider mb-0.5">New Leads</div>
-        <div className="font-bold text-text-primary text-sm">452</div>
+        <div className="text-text-secondary text-[10px] sm:text-xs uppercase tracking-wider mb-0.5 whitespace-nowrap">New Leads</div>
+        <div className="font-bold text-text-primary text-xs sm:text-sm">452</div>
       </div>
       <div className="h-[55px] flex flex-col justify-center">
-        <div className="text-text-secondary text-xs uppercase tracking-wider mb-0.5">Qualified</div>
-        <div className="font-bold text-text-primary text-sm">210</div>
+        <div className="text-text-secondary text-[10px] sm:text-xs uppercase tracking-wider mb-0.5 whitespace-nowrap">Qualified</div>
+        <div className="font-bold text-text-primary text-xs sm:text-sm">210</div>
       </div>
       <div className="h-[55px] flex flex-col justify-center">
-        <div className="text-text-secondary text-xs uppercase tracking-wider mb-0.5">Proposal</div>
-        <div className="font-bold text-text-primary text-sm">85</div>
+        <div className="text-text-secondary text-[10px] sm:text-xs uppercase tracking-wider mb-0.5 whitespace-nowrap">Proposal</div>
+        <div className="font-bold text-text-primary text-xs sm:text-sm">85</div>
       </div>
       <div className="h-[55px] flex flex-col justify-center">
-        <div className="text-text-secondary text-xs uppercase tracking-wider mb-0.5">Closed Won</div>
-        <div className="font-bold text-text-primary text-sm">32</div>
+        <div className="text-text-secondary text-[10px] sm:text-xs uppercase tracking-wider mb-0.5 whitespace-nowrap">Closed Won</div>
+        <div className="font-bold text-text-primary text-xs sm:text-sm">32</div>
       </div>
     </div>
 
@@ -51,10 +51,10 @@ const FunnelChart = () => (
 
     {/* Right Labels */}
     <div className="flex flex-col h-full justify-between text-left shrink-0">
-      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-sm">100%</div>
-      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-sm">46.4%</div>
-      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-sm">18.8%</div>
-      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-sm">7.1%</div>
+      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-[10px] sm:text-sm">100%</div>
+      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-[10px] sm:text-sm">46.4%</div>
+      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-[10px] sm:text-sm">18.8%</div>
+      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-[10px] sm:text-sm">7.1%</div>
     </div>
   </div>
 );

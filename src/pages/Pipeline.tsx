@@ -31,7 +31,7 @@ export default function Pipeline({ isOpportunities = false }: { isOpportunities?
 
   return (
     <div className="h-full flex flex-col max-w-[1600px] mx-auto overflow-hidden">
-      <div className="mb-6 flex justify-between items-end shrink-0">
+      <div className="mb-6 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 shrink-0">
         <div>
           <h1 className="text-2xl font-semibold text-text-primary">
             {isOpportunities ? 'Opportunities — Pipeline View' : 'Pipeline'}

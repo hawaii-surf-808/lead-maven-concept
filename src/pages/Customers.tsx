@@ -30,19 +30,19 @@ export default function Customers() {
 
   return (
     <div className="h-full flex flex-col max-w-7xl mx-auto relative">
-      <div className="mb-6 flex justify-between items-end">
+      <div className="mb-6 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 shrink-0">
         <div>
           <h1 className="text-2xl font-semibold text-text-primary">Customers</h1>
           <p className="text-sm text-text-tertiary mt-1">Manage and view all your customer data</p>
-          <div className="flex items-center gap-3 mt-4 text-xs font-semibold uppercase tracking-wider text-text-tertiary">
+          <div className="flex items-center gap-3 mt-4 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-text-tertiary flex-wrap">
             <span>24 Total Customers</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-border-strong"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-border-strong hidden sm:block"></span>
             <span>5 Active This Week</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-border-strong"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-border-strong hidden sm:block"></span>
             <span>2 New This Month</span>
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 flex-wrap">
           <div className="flex bg-surface-raised p-1 rounded-lg border border-border-subtle">
             <button
               onClick={() => setViewMode('list')}

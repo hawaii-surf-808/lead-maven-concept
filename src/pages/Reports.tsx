@@ -35,7 +35,7 @@ const LEADERBOARD = [
 export default function Reports() {
   return (
     <div className="h-full flex flex-col max-w-7xl mx-auto overflow-y-auto pr-2 pb-10">
-      <div className="mb-6 flex justify-between items-end">
+      <div className="mb-6 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 shrink-0">
         <div>
           <h1 className="text-2xl font-semibold text-text-primary">Reports & Analytics</h1>
           <p className="text-sm text-text-tertiary mt-1">Deep dive into your revenue and team performance</p>
@@ -44,7 +44,7 @@ export default function Reports() {
              <p className="text-[13px] font-medium text-text-tertiary">Made In Hawaii Enterprises · Last synced 2 min ago</p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 flex-wrap">
           <select className="bg-surface-raised border border-border-subtle text-[13px] font-medium text-text-secondary rounded-lg px-3 py-2 focus:outline-none appearance-none cursor-pointer hover:border-emerald-500/50 transition-colors hidden sm:block">
             <option>Made In Hawaii Enterprises — All Pipelines</option>
             <option>Made In Hawaii Enterprises — Sales Pipeline</option>
