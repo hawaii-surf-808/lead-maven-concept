@@ -2,10 +2,10 @@ import React from 'react';
 import { PIPELINE_DEALS } from '../data';
 
 const columns = [
-  { id: 'new', label: 'New', color: 'bg-blue-500' },
-  { id: 'qualified', label: 'Qualified', color: 'bg-indigo-500' },
-  { id: 'proposal', label: 'Proposal', color: 'bg-amber-500' },
-  { id: 'negotiation', label: 'Negotiation', color: 'bg-orange-500' },
+  { id: 'new', label: 'New', color: 'bg-zinc-400' },
+  { id: 'qualified', label: 'Qualified', color: 'bg-zinc-600' },
+  { id: 'proposal', label: 'Proposal', color: 'bg-emerald-600' },
+  { id: 'negotiation', label: 'Negotiation', color: 'bg-emerald-700' },
   { id: 'closed', label: 'Closed Won', color: 'bg-emerald-500' },
 ];
 

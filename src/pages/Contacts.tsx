@@ -13,7 +13,7 @@ export default function Contacts() {
           <h1 className="text-2xl font-semibold text-text-primary">Contacts</h1>
           <p className="text-sm text-text-tertiary mt-1">Manage your professional network and leads</p>
         </div>
-        <button className="bg-emerald-500 hover:bg-emerald-400 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-[0_0_16px_rgba(16,185,129,0.2)]">
+        <button className="bg-emerald-500 hover:bg-emerald-400 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all emerald-glow">
           Add Contact
         </button>
       </div>

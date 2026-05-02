@@ -65,7 +65,6 @@ export default function App() {
 
   const navItems1 = [
     { label: 'Overview', icon: Activity },
-    { label: 'Dashboard', icon: Grid },
     { label: 'Pipeline', icon: GitMerge },
     { label: 'Customers', icon: Users },
   ];
@@ -73,7 +72,6 @@ export default function App() {
   const navItems2 = [
     { label: 'Conversations', icon: MessageSquare },
     { label: 'Contacts', icon: Contact },
-    { label: 'Opportunities', icon: Briefcase },
     { label: 'Reports', icon: BarChart2 },
   ];
 
