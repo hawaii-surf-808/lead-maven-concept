@@ -39,11 +39,21 @@ export default function Reports() {
         <div>
           <h1 className="text-2xl font-semibold text-text-primary">Reports & Analytics</h1>
           <p className="text-sm text-text-tertiary mt-1">Deep dive into your revenue and team performance</p>
+          <div className="flex items-center gap-2 mt-2">
+             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+             <p className="text-[13px] font-medium text-text-tertiary">Made In Hawaii Enterprises · Last synced 2 min ago</p>
+          </div>
         </div>
-        <button className="flex items-center gap-2 bg-surface-card border border-border-subtle text-text-secondary hover:text-text-primary px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-          <Calendar size={16} />
-          Last 30 Days
-        </button>
+        <div className="flex items-center gap-4">
+          <select className="bg-surface-raised border border-border-subtle text-[13px] font-medium text-text-secondary rounded-lg px-3 py-2 focus:outline-none appearance-none cursor-pointer hover:border-emerald-500/50 transition-colors hidden sm:block">
+            <option>Made In Hawaii Enterprises — All Pipelines</option>
+            <option>Made In Hawaii Enterprises — Sales Pipeline</option>
+          </select>
+          <button className="flex items-center gap-2 bg-surface-card border border-border-subtle text-text-secondary hover:text-text-primary px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+            <Calendar size={16} />
+            Last 30 Days
+          </button>
+        </div>
       </div>
 
       <div className="space-y-6">

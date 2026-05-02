@@ -3,7 +3,7 @@ import {
   Activity, Grid, GitMerge, Users, MessageSquare, Contact, 
   Briefcase, BarChart2, Settings, HelpCircle, 
   Search, Plus, Bell, X, Menu, Sun, Moon,
-  CreditCard, Megaphone, Zap, Star, LayoutTemplate, ShieldCheck
+  CreditCard, Megaphone, Zap, Star, LayoutTemplate, ShieldCheck, ChevronDown
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
@@ -16,8 +16,9 @@ import Contacts from './pages/Contacts';
 import Conversations from './pages/Conversations';
 import Reports from './pages/Reports';
 import Stub from './pages/Stub';
+import LogoMIH from './logo-mih.png';
 
-const SidebarItem = ({ icon: Icon, label, active = false, onClick }: { icon: any, label: string, active?: boolean, onClick: () => void }) => (
+const SidebarItem: React.FC<{ icon: any, label: string, active?: boolean, onClick: () => void }> = ({ icon: Icon, label, active = false, onClick }) => (
   <button 
     onClick={onClick}
     className={`flex w-full items-center gap-3 px-4 py-2 rounded-lg mb-1 transition-colors ${
@@ -141,6 +142,21 @@ export default function App() {
           </button>
         </div>
         
+        <div className="p-4 border-b border-border-subtle bg-white/50 dark:bg-transparent">
+          <div className="flex items-center justify-between p-2 rounded-lg hover:bg-surface-raised cursor-pointer transition-colors group">
+            <div className="flex items-center gap-3 w-[80%]">
+              <div className="w-8 h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center font-bold shadow-sm shrink-0 overflow-hidden">
+                <img src={LogoMIH} alt="MIH Logo" className="w-full h-full object-cover" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-[13px] font-bold text-text-primary tracking-tight truncate">Made In Hawaii Enterprises</div>
+                <div className="text-[10px] uppercase font-semibold text-text-tertiary tracking-wider mt-0.5">Agency Account</div>
+              </div>
+            </div>
+            <ChevronDown size={14} className="text-text-tertiary group-hover:text-text-secondary transition-colors" />
+          </div>
+        </div>
+
         <div className="flex-1 overflow-y-auto p-4 py-6 scroll-smooth styled-scrollbar">
           <div className="space-y-1">
             {navGroups.map((group, groupIdx) => (
@@ -186,6 +202,13 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-6">
+            <div className="hidden sm:flex items-center gap-2 bg-surface-raised border border-border-subtle rounded-full pl-1 pr-3 py-1 shadow-sm">
+              <div className="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-[10px] shadow-sm overflow-hidden scale-[1.15]">
+                <img src={LogoMIH} alt="MIH Logo" className="w-full h-full object-cover" />
+              </div>
+              <span className="text-[12px] font-semibold text-text-primary w-[140px] truncate ml-1">Made In Hawaii Enterprises</span>
+            </div>
+
             {/* Theme Toggle */}
             <button 
               onClick={() => setIsDark(!isDark)}

@@ -259,9 +259,15 @@ export default function Overview() {
         <div className="crm-card p-6 lg:col-span-2 flex flex-col h-[340px]">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-lg font-semibold text-text-primary">Lead Source Report</h2>
-            <button className="text-emerald-500 text-xs font-bold tracking-wider hover:text-emerald-400 flex items-center gap-1 uppercase transition-colors">
-              <Download size={14} /> Export
-            </button>
+            <div className="flex items-center gap-4">
+              <select className="bg-surface-raised border border-border-subtle text-[11px] font-medium text-text-secondary rounded-lg px-2 py-1.5 focus:outline-none appearance-none cursor-pointer hover:border-emerald-500/50 transition-colors hidden sm:block">
+                <option>Made In Hawaii Enterprises — All Pipelines</option>
+                <option>Made In Hawaii Enterprises — Sales Pipeline</option>
+              </select>
+              <button className="text-emerald-500 text-xs font-bold tracking-wider hover:text-emerald-400 flex items-center gap-1 uppercase transition-colors">
+                <Download size={14} /> Export
+              </button>
+            </div>
           </div>
           
           <div className="flex-1 overflow-x-auto">

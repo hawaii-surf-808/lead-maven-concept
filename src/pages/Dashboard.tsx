@@ -56,8 +56,16 @@ export default function Dashboard() {
       <div className="flex justify-between items-end shrink-0">
         <div>
           <h1 className="text-2xl font-semibold text-text-primary">Performance Dashboard</h1>
+          <div className="flex items-center gap-2 mt-2">
+             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+             <p className="text-[13px] font-medium text-text-tertiary">Made In Hawaii Enterprises · Last synced 2 min ago</p>
+          </div>
         </div>
         <div className="flex items-center gap-4">
+          <select className="bg-surface-raised border border-border-subtle text-[13px] font-medium text-text-secondary rounded-lg px-3 py-2 focus:outline-none appearance-none cursor-pointer hover:border-emerald-500/50 transition-colors hidden sm:block">
+            <option>Made In Hawaii Enterprises — All Pipelines</option>
+            <option>Made In Hawaii Enterprises — Sales Pipeline</option>
+          </select>
           <div className="bg-surface-raised border border-border-subtle p-1 rounded-lg flex items-center text-xs font-medium">
             {['7D', '30D', 'QTR', 'YTD'].map(range => (
               <button 

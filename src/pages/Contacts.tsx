@@ -40,7 +40,11 @@ export default function Contacts() {
       <div className="mb-6 flex justify-between items-end">
         <div>
           <h1 className="text-2xl font-semibold text-text-primary">Contacts</h1>
-          <p className="text-sm text-text-tertiary mt-1">Manage your professional network and leads</p>
+          <div className="flex items-center gap-2 mt-2">
+             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+             <p className="text-[13px] font-medium text-text-tertiary">Made In Hawaii Enterprises · Last synced 2 min ago</p>
+          </div>
+          <p className="text-sm text-text-tertiary mt-2">Manage your professional network and leads</p>
           <div className="flex items-center gap-3 mt-4 text-xs font-semibold uppercase tracking-wider text-text-tertiary">
             <span>45 Total Contacts</span>
             <span className="w-1.5 h-1.5 rounded-full bg-border-strong"></span>

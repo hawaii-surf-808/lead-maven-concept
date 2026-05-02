@@ -39,8 +39,16 @@ export default function Pipeline({ isOpportunities = false }: { isOpportunities?
           <p className="text-sm text-text-tertiary mt-1">Manage active deals across all stages</p>
         </div>
         
-        {/* View Toggle */}
-        <div className="flex bg-surface-raised p-1 rounded-lg border border-border-subtle">
+        <div className="flex items-center gap-4">
+          {/* Context Dropdown */}
+          <select className="bg-surface-raised border border-border-subtle text-[13px] font-medium text-text-secondary rounded-lg px-3 py-2 focus:outline-none appearance-none cursor-pointer hover:border-emerald-500/50 transition-colors hidden sm:block">
+            <option>Made In Hawaii Enterprises — All Pipelines</option>
+            <option>Made In Hawaii Enterprises — Sales Pipeline</option>
+            <option>Made In Hawaii Enterprises — Renewal Pipeline</option>
+          </select>
+
+          {/* View Toggle */}
+          <div className="flex bg-surface-raised p-1 rounded-lg border border-border-subtle">
           <button
             onClick={() => setViewMode('list')}
             className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-surface-card text-emerald-500 shadow-sm border border-border-subtle' : 'text-text-tertiary hover:text-text-secondary'}`}
@@ -53,6 +61,7 @@ export default function Pipeline({ isOpportunities = false }: { isOpportunities?
           >
             <LayoutGrid size={16} />
           </button>
+        </div>
         </div>
       </div>
 
@@ -158,11 +167,11 @@ export default function Pipeline({ isOpportunities = false }: { isOpportunities?
   );
 }
 
-function ListStageSection({ col, getDealsForStage, getTotalValue }: { 
+const ListStageSection: React.FC<{ 
   col: typeof columns[0], 
   getDealsForStage: (id: string) => any[], 
   getTotalValue: (id: string) => number 
-}) {
+}> = ({ col, getDealsForStage, getTotalValue }) => {
   const [isOpen, setIsOpen] = useState(true);
   const deals = getDealsForStage(col.id);
   const total = getTotalValue(col.id);
