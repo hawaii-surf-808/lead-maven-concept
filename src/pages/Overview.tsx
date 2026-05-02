@@ -4,61 +4,57 @@ import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 import { PENDING_TASKS, LEAD_SOURCES, MINI_STATS, MOCK_CHART_DATA } from '../data';
 
 const FunnelChart = () => (
-  <div className="flex w-full items-start justify-center h-[200px] mt-6 select-none relative gap-4">
+  <div className="flex w-full items-center justify-center h-[220px] mt-6 select-none relative gap-6">
     {/* Left Labels */}
-    <div className="flex flex-col h-full text-right shrink-0">
-      <div className="h-[50px] flex flex-col justify-center">
-        <div className="font-semibold text-text-primary text-xs">NEW LEADS</div>
-        <div className="text-text-tertiary text-xs">452 Leads</div>
+    <div className="flex flex-col h-full justify-between text-right shrink-0">
+      <div className="h-[55px] flex flex-col justify-center">
+        <div className="text-text-secondary text-xs uppercase tracking-wider mb-0.5">New Leads</div>
+        <div className="font-bold text-text-primary text-sm">452</div>
       </div>
-      <div className="h-[50px] flex flex-col justify-center">
-        <div className="font-semibold text-text-primary text-xs">QUALIFIED</div>
-        <div className="text-text-tertiary text-xs">210 Leads</div>
+      <div className="h-[55px] flex flex-col justify-center">
+        <div className="text-text-secondary text-xs uppercase tracking-wider mb-0.5">Qualified</div>
+        <div className="font-bold text-text-primary text-sm">210</div>
       </div>
-      <div className="h-[50px] flex flex-col justify-center">
-        <div className="font-semibold text-text-primary text-xs">PROPOSAL</div>
-        <div className="text-text-tertiary text-xs">85 Sent</div>
+      <div className="h-[55px] flex flex-col justify-center">
+        <div className="text-text-secondary text-xs uppercase tracking-wider mb-0.5">Proposal</div>
+        <div className="font-bold text-text-primary text-sm">85</div>
       </div>
-      <div className="h-[50px] flex flex-col justify-center">
-        <div className="font-semibold text-text-primary text-xs">CLOSED</div>
-        <div className="text-text-tertiary text-xs">32 Won</div>
+      <div className="h-[55px] flex flex-col justify-center">
+        <div className="text-text-secondary text-xs uppercase tracking-wider mb-0.5">Closed Won</div>
+        <div className="font-bold text-text-primary text-sm">32</div>
       </div>
     </div>
 
-    {/* SVG */}
-    <div className="h-full px-2 flex-1 max-w-[280px]">
-      <svg viewBox="0 0 400 200" className="w-full h-full drop-shadow-md" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#10b981" />
-            <stop offset="100%" stopColor="#059669" />
-          </linearGradient>
-          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#059669" />
-            <stop offset="100%" stopColor="#047857" />
-          </linearGradient>
-          <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#047857" />
-            <stop offset="100%" stopColor="#065f46" />
-          </linearGradient>
-          <linearGradient id="g4" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#065f46" />
-            <stop offset="100%" stopColor="#064e3b" />
-          </linearGradient>
-        </defs>
-        <path d="M 0 0 L 400 0 L 292.8 50 L 107.2 50 Z" fill="url(#g1)" className="hover:opacity-90 transition-opacity cursor-pointer" />
-        <path d="M 107.2 50 L 292.8 50 L 237.6 100 L 162.4 100 Z" fill="url(#g2)" className="hover:opacity-90 transition-opacity cursor-pointer" />
-        <path d="M 162.4 100 L 237.6 100 L 214.2 150 L 185.8 150 Z" fill="url(#g3)" className="hover:opacity-90 transition-opacity cursor-pointer" />
-        <path d="M 185.8 150 L 214.2 150 L 214.2 200 L 185.8 200 Z" fill="url(#g4)" className="hover:opacity-90 transition-opacity cursor-pointer" />
+    {/* SVG Funnel */}
+    <div className="h-full px-2 flex-1 max-w-[280px] relative">
+      {/* Background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-32 bg-emerald-500/15 blur-2xl rounded-full pointer-events-none"></div>
+      
+      <svg viewBox="0 0 400 220" className="w-full h-full drop-shadow-md relative z-10" preserveAspectRatio="none">
+        {/* Stage 1: 100% to 46.4% */}
+        <path d="M 0 0 L 400 0 L 292.8 55 L 107.2 55 Z" fill="rgba(16, 185, 129, 0.85)" className="hover:opacity-90 transition-opacity cursor-pointer" />
+        <line x1="107.2" y1="55" x2="292.8" y2="55" stroke="#059669" strokeWidth="2" />
+        
+        {/* Stage 2: 46.4% to 18.8% */}
+        <path d="M 107.2 55 L 292.8 55 L 237.6 110 L 162.4 110 Z" fill="rgba(16, 185, 129, 0.65)" className="hover:opacity-90 transition-opacity cursor-pointer" />
+        <line x1="162.4" y1="110" x2="237.6" y2="110" stroke="#059669" strokeWidth="2" />
+        
+        {/* Stage 3: 18.8% to 7.1% */}
+        <path d="M 162.4 110 L 237.6 110 L 214.2 165 L 185.8 165 Z" fill="rgba(16, 185, 129, 0.45)" className="hover:opacity-90 transition-opacity cursor-pointer" />
+        <line x1="185.8" y1="165" x2="214.2" y2="165" stroke="#059669" strokeWidth="2" />
+        
+        {/* Stage 4: 7.1% to ~4% */}
+        <path d="M 185.8 165 L 214.2 165 L 208 220 L 192 220 Z" fill="rgba(16, 185, 129, 0.30)" className="hover:opacity-90 transition-opacity cursor-pointer" />
+        <line x1="192" y1="220" x2="208" y2="220" stroke="#059669" strokeWidth="2" />
       </svg>
     </div>
 
     {/* Right Labels */}
-    <div className="flex flex-col h-full text-left shrink-0">
-      <div className="h-[50px] flex items-center font-medium text-text-primary text-sm">100%</div>
-      <div className="h-[50px] flex items-center font-medium text-text-primary text-sm">46.4%</div>
-      <div className="h-[50px] flex items-center font-medium text-text-primary text-sm">18.8%</div>
-      <div className="h-[50px] flex items-center font-medium text-text-primary text-sm">7.1%</div>
+    <div className="flex flex-col h-full justify-between text-left shrink-0">
+      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-sm">100%</div>
+      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-sm">46.4%</div>
+      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-sm">18.8%</div>
+      <div className="h-[55px] flex items-center font-medium text-text-tertiary text-sm">7.1%</div>
     </div>
   </div>
 );

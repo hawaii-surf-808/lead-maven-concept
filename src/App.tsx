@@ -2,29 +2,38 @@ import React, { useState, useEffect } from 'react';
 import { 
   Activity, Grid, GitMerge, Users, MessageSquare, Contact, 
   Briefcase, BarChart2, Settings, HelpCircle, 
-  Search, Plus, Bell, X, Menu, Sun, Moon
+  Search, Plus, Bell, X, Menu, Sun, Moon,
+  CreditCard, Megaphone, Zap, Star, LayoutTemplate, ShieldCheck
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
 // Pages
 import Overview from './pages/Overview';
+import Dashboard from './pages/Dashboard';
 import Pipeline from './pages/Pipeline';
 import Customers from './pages/Customers';
 import Contacts from './pages/Contacts';
 import Conversations from './pages/Conversations';
 import Reports from './pages/Reports';
+import Stub from './pages/Stub';
 
 const SidebarItem = ({ icon: Icon, label, active = false, onClick }: { icon: any, label: string, active?: boolean, onClick: () => void }) => (
   <button 
     onClick={onClick}
-    className={`flex w-full items-center gap-3 px-4 py-2.5 rounded-lg mb-1 transition-colors ${
+    className={`flex w-full items-center gap-3 px-4 py-2 rounded-lg mb-1 transition-colors ${
     active 
       ? 'bg-emerald-500/10 text-emerald-500 font-medium' 
       : 'text-text-secondary hover:bg-surface-raised hover:text-text-primary'
   }`}>
-    <Icon className="w-5 h-5" />
-    <span>{label}</span>
+    <Icon className="w-[18px] h-[18px]" />
+    <span className="text-[14px]">{label}</span>
   </button>
+);
+
+const SidebarGroupLabel = ({ label }: { label: string }) => (
+  <div className="px-4 text-[10px] uppercase tracking-widest font-semibold text-text-tertiary mb-2 mt-4">
+    {label}
+  </div>
 );
 
 export default function App() {
@@ -52,27 +61,56 @@ export default function App() {
   const renderPage = () => {
     switch (activePage) {
       case 'Overview': return <Overview />;
-      case 'Dashboard': return <Overview />;
+      case 'Dashboard': return <Dashboard />;
       case 'Pipeline': return <Pipeline />;
-      case 'Customers': return <Customers />;
       case 'Contacts': return <Contacts />;
+      case 'Customers': return <Customers />;
       case 'Conversations': return <Conversations />;
-      case 'Opportunities': return <Pipeline />;
-      case 'Reports': return <Reports />;
+      case 'Reporting': return <Reports />;
+      case 'Payments':
+      case 'Marketing':
+      case 'Automation':
+      case 'Reputation':
+      case 'Sites':
+      case 'Memberships':
+        return <Stub pageName={activePage} />;
       default: return <Overview />;
     }
   };
 
-  const navItems1 = [
-    { label: 'Overview', icon: Activity },
-    { label: 'Pipeline', icon: GitMerge },
-    { label: 'Customers', icon: Users },
-  ];
-
-  const navItems2 = [
-    { label: 'Conversations', icon: MessageSquare },
-    { label: 'Contacts', icon: Contact },
-    { label: 'Reports', icon: BarChart2 },
+  const navGroups = [
+    {
+      items: [
+        { label: 'Overview', icon: Activity },
+        { label: 'Dashboard', icon: Grid },
+      ]
+    },
+    {
+      label: 'Sales',
+      items: [
+        { label: 'Pipeline', icon: GitMerge },
+        { label: 'Contacts', icon: Contact },
+        { label: 'Customers', icon: Users },
+        { label: 'Payments', icon: CreditCard },
+      ]
+    },
+    {
+      label: 'Growth',
+      items: [
+        { label: 'Conversations', icon: MessageSquare },
+        { label: 'Marketing', icon: Megaphone },
+        { label: 'Automation', icon: Zap },
+        { label: 'Reputation', icon: Star },
+      ]
+    },
+    {
+      label: 'Platform',
+      items: [
+        { label: 'Sites', icon: LayoutTemplate },
+        { label: 'Memberships', icon: ShieldCheck },
+        { label: 'Reporting', icon: BarChart2 },
+      ]
+    }
   ];
 
   return (
@@ -87,8 +125,8 @@ export default function App() {
       )}
 
       {/* Sidebar */}
-      <aside className={`fixed inset-y-0 left-0 z-50 w-64 border-r border-border-subtle bg-surface-base flex flex-col transition-transform duration-300 lg:relative lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="h-20 flex items-center px-6 border-b border-border-subtle">
+      <aside className={`fixed inset-y-0 left-0 z-50 w-[272px] border-r border-border-subtle bg-surface-base flex flex-col transition-transform duration-300 lg:relative lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="h-20 flex items-center px-6 border-b border-border-subtle shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded bg-emerald-500/20 text-emerald-500 flex items-center justify-center font-bold text-xl">
               L
@@ -103,34 +141,26 @@ export default function App() {
           </button>
         </div>
         
-        <div className="flex-1 overflow-y-auto p-4 py-6">
-          <div className="space-y-6">
-            <div>
-              {navItems1.map(item => (
-                <SidebarItem 
-                  key={item.label} 
-                  icon={item.icon} 
-                  label={item.label} 
-                  active={activePage === item.label} 
-                  onClick={() => { setActivePage(item.label); setSidebarOpen(false); }} 
-                />
-              ))}
-            </div>
-            <div>
-              {navItems2.map(item => (
-                <SidebarItem 
-                  key={item.label} 
-                  icon={item.icon} 
-                  label={item.label} 
-                  active={activePage === item.label} 
-                  onClick={() => { setActivePage(item.label); setSidebarOpen(false); }} 
-                />
-              ))}
-            </div>
+        <div className="flex-1 overflow-y-auto p-4 py-6 scroll-smooth styled-scrollbar">
+          <div className="space-y-1">
+            {navGroups.map((group, groupIdx) => (
+              <div key={groupIdx} className={groupIdx > 0 ? 'mt-4' : ''}>
+                {group.label && <SidebarGroupLabel label={group.label} />}
+                {group.items.map(item => (
+                  <SidebarItem 
+                    key={item.label} 
+                    icon={item.icon} 
+                    label={item.label} 
+                    active={activePage === item.label} 
+                    onClick={() => { setActivePage(item.label); setSidebarOpen(false); }} 
+                  />
+                ))}
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="p-4 border-t border-border-subtle">
+        <div className="p-4 border-t border-border-subtle shrink-0">
           <SidebarItem icon={Settings} label="Settings" onClick={() => {}} />
           <SidebarItem icon={HelpCircle} label="Help" onClick={() => {}} />
         </div>

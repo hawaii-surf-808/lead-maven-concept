@@ -23,15 +23,15 @@ export const MOCK_CHART_DATA = [
 ];
 
 export const PIPELINE_DEALS = [
-  { id: 'd1', company: 'GlobalTech Ltd', value: 45000, owner: 'JD', days: 2, stage: 'new' },
-  { id: 'd2', company: 'InnovateSpace', value: 12000, owner: 'SL', days: 5, stage: 'new' },
-  { id: 'd3', company: 'Nexus Industries', value: 85000, owner: 'MK', days: 12, stage: 'qualified' },
-  { id: 'd4', company: 'Quantum Corp', value: 24000, owner: 'JD', days: 8, stage: 'qualified' },
-  { id: 'd5', company: 'TechNova Inc.', value: 115000, owner: 'MK', days: 3, stage: 'proposal' },
-  { id: 'd6', company: 'Starlight Media', value: 65000, owner: 'SL', days: 14, stage: 'negotiation' },
-  { id: 'd7', company: 'Evergreen Logistics', value: 32000, owner: 'JD', days: 1, stage: 'negotiation' },
-  { id: 'd8', company: 'Apex Partners', value: 210000, owner: 'MK', days: 45, stage: 'closed' },
-  { id: 'd9', company: 'Sunburst Energy', value: 15000, owner: 'SL', days: 10, stage: 'closed' },
+  { id: 'd1', company: 'GlobalTech Ltd', contact: 'Sarah Jenkins', value: 45000, owner: 'JD', days: 2, stage: 'new' },
+  { id: 'd2', company: 'InnovateSpace', contact: 'Alex Rivera', value: 12000, owner: 'SL', days: 5, stage: 'new' },
+  { id: 'd3', company: 'Nexus Industries', contact: 'Michael Chang', value: 85000, owner: 'MK', days: 12, stage: 'qualified' },
+  { id: 'd4', company: 'Quantum Corp', contact: 'David Miller', value: 24000, owner: 'JD', days: 8, stage: 'qualified' },
+  { id: 'd5', company: 'TechNova Inc.', contact: 'James Wilson', value: 115000, owner: 'MK', days: 3, stage: 'proposal' },
+  { id: 'd6', company: 'Starlight Media', contact: 'Emma Stone', value: 65000, owner: 'SL', days: 14, stage: 'negotiation' },
+  { id: 'd7', company: 'Evergreen Logistics', contact: 'Olivia Parker', value: 32000, owner: 'JD', days: 1, stage: 'negotiation' },
+  { id: 'd8', company: 'Apex Partners', contact: 'Rachel Green', value: 210000, owner: 'MK', days: 45, stage: 'closed' },
+  { id: 'd9', company: 'Sunburst Energy', contact: 'Daniel Cole', value: 15000, owner: 'SL', days: 10, stage: 'closed' },
 ];
 
 export const CUSTOMERS = [
